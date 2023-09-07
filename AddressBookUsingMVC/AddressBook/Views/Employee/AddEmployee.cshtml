@@ -1,0 +1,62 @@
+﻿@model Employee
+@{
+    ViewBag.Title = "Add Employee";
+}
+
+<div class="sub-content">
+<partial name="_ContactList" />
+    <div class="form-container">
+        <form class="contact-form" method="post">
+            <div>
+                <label for="name">Name</label>
+                <input class="requiredField" asp-for="Name" type="text" id="name"><span> *</span>
+                <span asp-validation-for="Name" class="form-error"></span>
+            </div>
+            <div>
+                <label for="email">Email</label>
+                <input class="requiredField" asp-for="Email" type="email" id="email"><span> *</span>
+                <span asp-validation-for="Email" class="form-error"></span>
+            </div>
+            <div class="contact-numbers">
+                <div>
+                    <label for="mobile">Mobile</label>
+                    <input class="requiredField" asp-for="MobileNumber" type="tel" id="mobile"><span> *</span>
+                    <span asp-validation-for="MobileNumber" class="form-error"></span>
+                </div>
+                <div>
+                    <label for="landline">Landline</label>
+                    <input asp-for="LandlineNumber" type="tel" id="landline">
+                    <span asp-validation-for="LandlineNumber" class="form-error"></span>
+
+                </div>
+            </div>
+            <div>
+                <label for="website">Website</label>
+                <input class="requiredField" asp-for="Website" type="url" id="website"><span> *</span>
+                <span asp-validation-for="Website" class="form-error"></span>
+            </div>
+            <div>
+                <label for="address">Address</label>
+                <textarea asp-for="Address" class="address" id="address"></textarea><span> *</span>
+                <span asp-validation-for="Address" class="form-error"></span>
+            </div>
+            <div class="form-buttons">
+                <a class="navigate-back form-button" asp-action="Index">Back</a>
+                <input class="submit-button form-button" type="submit" asp-action="AddEmployee" value="Add">
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+     $(function () {
+         $('.list-item').click(function () {
+             var employeeId = $(this).data('employee-id');
+             $.ajax({
+                 success: function (result) {
+                    window.location.href = '/Employee/DisplayEmployeeDetails/' + employeeId;
+                 }
+             });
+         });
+     });
+ </script>

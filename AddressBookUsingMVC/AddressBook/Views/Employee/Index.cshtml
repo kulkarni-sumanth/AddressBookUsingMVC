@@ -1,0 +1,26 @@
+﻿@model Employee
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="sub-content">
+    <partial name="_ContactList"/>
+    <div id="partial-view">
+        <partial name="_EmployeeDetails" model="@Model"/>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.list-item').click(function () {
+            var employeeId = $(this).data('employee-id');
+            $.ajax({
+                url: '/Employee/DisplayPartialView/' + employeeId,
+                type: 'GET',
+                success: function (result) {
+                    $('#partial-view').html(result);
+                }
+            });
+        });
+    });
+</script>

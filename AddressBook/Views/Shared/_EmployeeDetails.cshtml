@@ -1,0 +1,24 @@
+﻿@model Employee
+
+@if (Model.Id != 0)
+{
+    <div class="employee-details" id="employee-details">
+        <div class="profile-name">
+            <h1>@Model.Name</h1>
+            <div class="change-details">
+                <a asp-action="EditEmployee" asp-route-id="@Model.Id"><span class="edit"><img src="~/Edit-icon.png" alt="icon">EDIT</span></a>
+                <a asp-controller="Employee" asp-action="DeleteEmployee" asp-route-id="@Model.Id"><span class="delete" id="delete"><img src="~/delete2.png" alt="icon">DELETE</span></a>
+            </div>
+        </div>
+        <div>Email: @Model.Email</div>
+        <div>
+            <p>Mobile: @Model.MobileNumber</p>
+            <p>Landline: @Model.LandlineNumber</p>
+        </div>
+        <div>Website: @Model.Website</div>
+        <div class="home-address">
+            <p>Address: </p>
+            <div id="textarea">@Model.Address</div>
+        </div>
+    </div>
+}

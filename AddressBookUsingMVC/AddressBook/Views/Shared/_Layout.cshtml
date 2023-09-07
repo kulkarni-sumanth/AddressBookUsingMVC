@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewBag.Title - AddressBook</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/AddressBook.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/Styles.css" asp-append-version="true" />
+    <script src="~/lib/jquery/dist/jquery.min.js" asp-append-version="true"></script>
+</head>
+<body>
+    <div class="heading">
+        <p>Address Book</p>
+    </div>
+    <ul class="navbar">
+        <li class="home active" id="home"><a asp-action="Index">HOME</a></li>
+        <li class="add-employee" id="add"><a asp-action="AddEmployee">+Add</a></li>
+        <li class="icon"><img src="~/blog-icon.png" alt="icon"></li>
+    </ul>
+    <div class="content">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

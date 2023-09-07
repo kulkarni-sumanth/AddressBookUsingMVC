@@ -1,0 +1,19 @@
+﻿<div>
+    <h4 class="content-heading">CONTACTS</h4>
+    <div class="contact-details">
+        <ul class="contact-list" id="contact-list">
+            @foreach (var employee in @ViewBag.employees)
+            {
+                <li>
+                    <a class="list-item" data-employee-id="@employee.Id" id="@employee.Id">
+                        <h2 class="contact-name">@employee.Name</h2>
+                        <div class="more-details">
+                            <p class="mail">@employee.Email</p>
+                            <p class="contact-number">@employee.MobileNumber</p>
+                        </div>
+                    </a>
+                </li>
+            }
+        </ul>
+    </div>
+</div>
